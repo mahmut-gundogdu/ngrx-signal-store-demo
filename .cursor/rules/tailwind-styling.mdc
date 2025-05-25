@@ -1,0 +1,43 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Tailwind CSS Guidelines
+
+## Styling Principles
+- Use Tailwind CSS utility classes
+- Follow mobile-first responsive design
+- Use Tailwind's design tokens for consistency
+- Implement dark mode support using Tailwind
+- Avoid custom CSS unless absolutely necessary
+- Use Tailwind's component layer for reusable styles
+
+## Responsive Design
+- Start with mobile styles (no prefix)
+- Use `sm:`, `md:`, `lg:`, `xl:`, `2xl:` for larger screens
+- Implement consistent spacing using Tailwind's scale
+- Use flexbox and grid utilities for layouts
+
+## Component Patterns
+```html
+<!-- Card Component -->
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+  <!-- Content -->
+</div>
+
+<!-- Button Component -->
+<button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors">
+  Click me
+</button>
+
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- Items -->
+</div>
+```
+
+## Dark Mode
+- Use `dark:` prefix for dark mode variants
+- Implement consistent color schemes
+- Test both light and dark modes

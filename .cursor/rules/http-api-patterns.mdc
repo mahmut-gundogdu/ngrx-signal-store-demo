@@ -1,0 +1,48 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# HTTP & API Guidelines
+
+## httpResource() Usage
+- Use httpResource() for REST API calls
+- Implement proper error handling and loading states
+- Use TypeScript interfaces for API response types
+- Implement request/response interceptors when needed
+- Use environment variables for API endpoints
+- Implement proper caching strategies
+
+## API Patterns
+```typescript
+// Service with httpResource()
+@Injectable({ providedIn: 'root' })
+export class ApiService {
+  private http = inject(HttpClient);
+
+  getProducts() {
+    return httpResource({
+      url: '/api/products',
+      loader: () => this.http.get<Product[]>('/api/products')
+    });
+  }
+}
+```
+
+## Error Handling
+- Implement global error interceptor
+- Use proper HTTP status code handling
+- Display user-friendly error messages
+- Implement retry mechanisms for failed requests
+- Log errors for debugging
+
+## Response Types
+- Define interfaces for all API responses
+- Use generic types for common patterns
+- Implement proper null/undefined handling
+- Use discriminated unions for different response states
+
+## Environment Configuration
+- Use environment files for API endpoints
+- Implement different configs for dev/prod
+- Handle API versioning properly

@@ -1,0 +1,48 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Signal Store Patterns
+
+## Store Architecture
+- Use @ngrx/signals for complex state management
+- Create feature-specific signal stores
+- Implement computed signals for derived state
+- Use effect() for side effects and API calls
+- Prefer signalStore() over traditional services for state
+- Implement proper error handling in signal stores
+
+## Store Structure
+```typescript
+export const FeatureStore = signalStore(
+  { providedIn: 'root' },
+  withState<FeatureState>({
+    items: [],
+    loading: false,
+    error: null,
+    selectedItem: null
+  }),
+  withComputed(({ items, selectedItem }) => ({
+    itemCount: computed(() => items().length),
+    hasItems: computed(() => items().length > 0)
+  })),
+  withMethods((store) => ({
+    loadItems: () => {
+      // Implementation with httpResource()
+    },
+    selectItem: (id: string) => {
+      // Implementation
+    }
+  }))
+);
+```
+
+## Best Practices
+- Keep state normalized and flat
+- Use computed signals for derived data
+- Implement loading and error states
+- Use proper TypeScript typing for state
+- Handle side effects in methods, not computed signals
+
+@signal-store-template.ts

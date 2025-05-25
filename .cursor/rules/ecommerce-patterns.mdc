@@ -1,0 +1,146 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# E-commerce Patterns
+
+## Product Management
+- Implement product catalog with search, filtering, and sorting
+- Use lazy loading for product images
+- Implement product variants (size, color, etc.)
+- Create reusable product card components
+- Implement product comparison functionality
+
+## Shopping Cart
+- Use signal store for cart state management
+- Implement persistent cart (localStorage/sessionStorage)
+- Handle cart item quantity updates
+- Implement cart validation and error handling
+- Create cart summary components
+
+## User Management
+- Implement authentication with JWT tokens
+- Use guards for route protection
+- Create user profile management
+- Implement order history functionality
+- Handle user preferences and settings
+
+## Checkout Process
+- Create multi-step checkout flow
+- Implement form validation with reactive forms
+- Handle payment integration
+- Implement order confirmation
+- Create invoice/receipt generation
+
+## Data Models (Fake Store API)
+```typescript
+// Product interface based on Fake Store API
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: ProductRating;
+}
+
+interface ProductRating {
+  rate: number;
+  count: number;
+}
+
+// Cart interface for Fake Store API
+interface CartItem {
+  productId: number;
+  quantity: number;
+}
+
+interface Cart {
+  id: number;
+  userId: number;
+  date: string;
+  products: CartItem[];
+}
+
+// User interface for Fake Store API
+interface User {
+  id: number;
+  email: string;
+  username: string;
+  password: string;
+  name: UserName;
+  address: UserAddress;
+  phone: string;
+}
+
+interface UserName {
+  firstname: string;
+  lastname: string;
+}
+
+interface UserAddress {
+  city: string;
+  street: string;
+  number: number;
+  zipcode: string;
+  geolocation: {
+    lat: string;
+    long: string;
+  };
+}
+
+// Extended interfaces for application use
+interface ExtendedProduct extends Product {
+  inStock?: boolean;
+  variants?: ProductVariant[];
+  images?: string[]; // Additional images beyond the main image
+}
+
+interface ProductVariant {
+  id: string;
+  name: string;
+  value: string;
+  price?: number; // Price difference from base product
+}
+
+interface CartItemExtended extends CartItem {
+  product?: Product;
+  selectedVariant?: ProductVariant;
+  totalPrice?: number;
+}
+```
+
+## API Endpoints (Fake Store API)
+```typescript
+// Base URL: https://fakestoreapi.com
+
+// Products
+GET /products              // Get all products
+GET /products/{id}         // Get single product
+GET /products/categories   // Get all categories
+GET /products/category/{category} // Get products by category
+POST /products            // Add new product
+PUT /products/{id}        // Update product
+PATCH /products/{id}      // Partial update
+DELETE /products/{id}     // Delete product
+
+// Carts
+GET /carts               // Get all carts
+GET /carts/{id}          // Get single cart
+GET /carts/user/{userId} // Get user carts
+POST /carts             // Add new cart
+PUT /carts/{id}         // Update cart
+DELETE /carts/{id}      // Delete cart
+
+// Users
+GET /users              // Get all users
+GET /users/{id}         // Get single user
+POST /users            // Add new user
+PUT /users/{id}        // Update user
+DELETE /users/{id}     // Delete user
+
+// Auth
+POST /auth/login       // User login (returns JWT token)
+```

@@ -1,0 +1,24 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Angular 19 E-commerce Project
+
+## Project Overview
+This is a modern e-commerce application built with Angular 19, featuring a signal-based state management approach using @ngrx/signals, styled with Tailwind CSS, and utilizing httpResource() for REST API communication.
+
+## Core Technologies
+- **Framework**: Angular 19
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS v4
+- **State Management**: @ngrx/signals with Angular Signals
+- **HTTP Client**: httpResource() for REST API calls
+- **Build Tool**: Angular CLI
+
+## Key Principles
+- Use standalone components (Angular 19 default)
+- Implement signal-based reactive programming
+- Follow strict TypeScript configuration
+- Use Tailwind utility-first CSS approach
+- Implement proper error handling and loading states

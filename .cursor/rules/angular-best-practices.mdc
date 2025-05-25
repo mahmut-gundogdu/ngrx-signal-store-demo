@@ -1,0 +1,34 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Angular Best Practices
+
+## Component Architecture
+- Use standalone components (Angular 19 default)
+- Implement OnPush change detection strategy where possible
+- Use Angular Signals for reactive state management
+- Prefer dependency injection over direct imports
+- Keep components focused and single-responsibility
+- Use smart/dumb component pattern
+
+## Lifecycle & Performance
+- Implement proper lifecycle hooks (OnInit, OnDestroy, etc.)
+- Use trackBy functions for *ngFor loops with dynamic data
+- Implement lazy loading for feature modules
+- Use OnPush change detection strategy
+- Prefer composition over inheritance
+- Keep template logic minimal
+
+## Signals Integration
+- Implement proper input/output patterns with signals
+- Use computed signals for derived state
+- Use effect() for side effects
+- Use resource() or httpResourse() for API calls
+
+## Naming Conventions
+- **Components**: PascalCase (e.g., `ProductListComponent`)
+- **Services**: PascalCase with Service suffix (e.g., `ProductService`)
+- **Files**: kebab-case (e.g., `product-list.component.ts`)
+- **Directories**: kebab-case (e.g., `product-management`)

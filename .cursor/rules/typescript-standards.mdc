@@ -1,0 +1,27 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# TypeScript Standards
+
+## Guidelines
+- Use strict TypeScript configuration
+- Prefer `const` over `let`, avoid `var`
+- Use explicit return types for functions
+- Implement proper type definitions for all data models
+- Use union types and type guards for better type safety
+- Prefer interfaces over types for object shapes
+- Use generic types where appropriate
+
+## Naming Conventions
+- **Interfaces**: PascalCase with descriptive names (e.g., `Product`, `CartItem`)
+- **Constants**: SCREAMING_SNAKE_CASE (e.g., `API_ENDPOINTS`)
+- **Functions**: camelCase with descriptive names
+- **Variables**: camelCase
+
+## Type Safety
+- Always define return types for public methods
+- Use strict null checks
+- Implement proper error types
+- Use discriminated unions for state management

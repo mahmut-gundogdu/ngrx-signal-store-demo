@@ -1,0 +1,49 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Testing Guidelines
+
+## Unit Testing
+- Write unit tests for components and services
+- Use Angular Testing Utilities
+- Mock HTTP calls in tests
+- Test signal store state changes
+- Maintain minimum 80% code coverage
+
+## Component Testing
+```typescript
+describe('ProductListComponent', () => {
+  let component: ProductListComponent;
+  let fixture: ComponentFixture<ProductListComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ProductListComponent]
+    }).compileComponents();
+  });
+
+  it('should display products', () => {
+    // Test implementation
+  });
+});
+```
+
+## Service Testing
+- Mock dependencies using jasmine spies
+- Test error handling scenarios
+- Verify HTTP calls with HttpClientTestingModule
+- Test signal store state transitions
+
+## E2E Testing
+- Implement e2e tests for critical user flows
+- Test complete checkout process
+- Verify user authentication flows
+- Test responsive design on different devices
+
+## Best Practices
+- Use descriptive test names
+- Follow AAA pattern (Arrange, Act, Assert)
+- Keep tests focused and isolated
+- Use proper mocking strategies
